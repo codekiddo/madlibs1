@@ -1,0 +1,78 @@
+body {
+  background: #eeeeee;
+}
+
+.container {
+  font-family: 'Open Sans', sans-serif;
+  margin: 50px auto;
+  width: 900px;
+  height: 1024px;
+  border: 2px solid #000;
+  background: #fff;
+}
+
+header {
+  height: 180px;
+  border-bottom: 2px solid #000;
+}
+
+.smiley, .logo {
+  display: inline-block;
+}
+
+.smiley {
+  width: 200px;
+  height: 100%;
+  border-right: 2px solid #000;
+  text-align: center;
+}
+
+.smiley img {
+  margin-top: 25px;
+  width: 130px;
+}
+
+.logo {
+  width: 690px;
+  text-align: center;
+}
+
+.logo img{
+  width: 300px;
+}
+
+h1 {
+  font-size: 55px;
+  margin: 0;
+}
+
+span {
+  text-decoration: underline;
+  color: #888;
+}
+
+.inputs {
+  border-bottom: 2px solid #000;
+  padding-left:55px;
+}
+
+h2 {
+  margin-left: 35px;
+}
+
+input {
+  width: 200px;
+  height: 30px;
+  font-size: 18px;
+  margin: 5px 0px 25px 35px;
+  display: inline-block;
+}
+
+.story {
+  padding: 20px 30px;
+}
+
+p {
+  margin: 40px;
+  font-size: 25px;
+}
