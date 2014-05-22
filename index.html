@@ -3,10 +3,9 @@
 <head>
   <title>ngMadLibs</title>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-  <script src="angular.min.js"></script>
 </head>
 <body>
 
@@ -49,13 +48,16 @@
   <div class="story">
 
     <p>
-      <span>{{male_name}}</span> was a <span>{{job_title}}</span> who loved technology. Although she loved parts of her job, she absolutely hated <span>{{tedious_task}}</span> and <span>{{dirty_task}}</span>. So, <span>{{male_name}}</span> met with her life mentor <span>{{celebrity}}</span> who told her to learn how to <span>{{useless_skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{useless_skill}}</span> so she studied programming instead.
+      <span ng-bind="male_name"></span> was a <span ng-bind="job_title"></span> who loved technology. Although she loved parts of her job, she absolutely hated <span ng-bind="tedious_task"></span> and <span ng-bind="tedious_task"></span>. So, <span ng-bind="male_name"></span> met with her life mentor <span ng-bind="celebrity"></span> who told her to learn how to <span ng-bind="useless_skill"></span> with Thinkful. Thinkful didn't offer a course on <span ng-bind="useless_skill"></span> so she studied programming instead.
     </p>
     <p>
-      What a great decision! With her new skills, <span>{{male_name}}</span> built a(n) <span>{{adjective}}</span> robot named <span>{{obnoxiuous_celebrity}}</span> that not only loved <span>{{dirty_task}}</span> but did it <span>{{huge_number}}</span> faster.  
+      What a great decision! With her new skills, <span ng-bind="male_name"></span> built a(n) <span ng-bind="adjective"></span> robot named <span ng-bind="obnoxiuous_celebrity"></span> that not only loved <span ng-bind="dirty_task"></span> but did it <span ng-bind="huge_number"></span> faster.  
     </p>
  
   </div>
 </div>
+
+<script src="js/angular.min.js"></script>
+
 </body>
 </html>
