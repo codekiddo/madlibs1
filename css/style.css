@@ -60,7 +60,7 @@ h2 {
   margin-left: 35px;
 }
 
-input {
+.input-row input {
   width: 200px;
   height: 30px;
   font-size: 18px;
