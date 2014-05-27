@@ -68,6 +68,10 @@ h2 {
   display: inline-block;
 }
 
+#submit {
+  margin-left: 50px;
+}
+
 .story {
   padding: 20px 30px;
 }
@@ -75,4 +79,12 @@ h2 {
 p {
   margin: 40px;
   font-size: 25px;
+}
+
+button {
+  margin-left: 70px;
+}
+
+.error {
+  color: red;
 }
