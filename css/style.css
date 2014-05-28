@@ -60,12 +60,16 @@ h2 {
   margin-left: 35px;
 }
 
-input {
+.input-row input {
   width: 200px;
   height: 30px;
   font-size: 18px;
   margin: 5px 0px 25px 35px;
   display: inline-block;
+}
+
+#submit {
+  margin-left: 50px;
 }
 
 .story {
@@ -75,4 +79,12 @@ input {
 p {
   margin: 40px;
   font-size: 25px;
+}
+
+button {
+  margin-left: 70px;
+}
+
+.error {
+  color: red;
 }

@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
   <title>ngMadLibs</title>
 
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-  <script src="angular.min.js"></script>
 </head>
 <body>
 
-<div class="container">
+<div class="container" ng-controller="MainCtrl">
   
-
   <header>
     <div class="smiley">
       <img src="images/mad-lib-happy-face.png" title="smiley" alt="smiley">
@@ -23,39 +21,80 @@
     </div>
   </header>
 
-  <div class="inputs">
-    <h2>Provide the following words:</h2>
+  <div class="inputs" ng-hide="submitted">
 
+    <form ng-submit="submit()" name="myForm" novalidate>
+
+      <h2>Provide the following words:
+        <div>
+          <label for="male">Male</label>
+          <input type="radio" ng-model="gender" id="male" value="male"></input>
+          <label for="female">Female</label>
+          <input type="radio" ng-model="gender" id="female" value="female"></input>
+        </div>
+      </h2>
+      
       <div class="input-row">
-        <input type="text" ng-model="male_name" ng-init="male_name='male name'" placeholder="male name"></input>
-        <input type="text" ng-model="dirty_task" ng-init="dirty_task='dirty task'" placeholder="dirty task"></input>
-        <input type="text" ng-model="obnoxiuous_celebrity" ng-init="obnoxiuous_celebrity='obnoxiuous celebrity'" placeholder="obnoxiuous celebrity"></input>
+        <input type="text" ng-model="data.name" placeholder="name" required></input>
+        <input type="text" ng-model="data.dirty_task" placeholder="dirty task"required></input>
+        <input type="text" ng-model="data.obnoxiuous_celebrity" placeholder="obnoxiuous celebrity" required></input>
       </div>
 
       <div class="input-row">
-        <input type="text" ng-model="job_title" ng-init="job_title='job title'" placeholder="job title"></input>
-        <input type="text" ng-model="celebrity" ng-init="celebrity='celebrity'" placeholder="celebrity"></input>
-        <input type="text" ng-model="huge_number" ng-init="huge_number='huge number'" placeholder="huge number"></input>
+        <input type="text" ng-model="data.job_title" placeholder="job title" required></input>
+        <input type="text" ng-model="data.celebrity" placeholder="celebrity" required></input>
+        <input type="number" ng-model="data.huge_number" placeholder="huge number" required></input>
       </div>
 
       <div class="input-row">
-        <input type="text" ng-model="tedious_task" ng-init="tedious_task='tedious task'" placeholder="tedious task"></input>
-        <input type="text" ng-model="useless_skill" ng-init="useless_skill='useless skill'" placeholder="useless skill"></input>
-        <input type="text" ng-model="adjective" ng-init="adjective='adjective'" placeholder="adjective"></input>
+        <input type="text" ng-model="data.tedious_task" placeholder="tedious task" required></input>
+        <input type="text" ng-model="data.useless_skill" required placeholder="useless skill"></input>
+        <input type="text" ng-model="data.adjective" placeholder="adjective" required></input>
       </div>
+
+      <div class="error" ng-if="error">
+        <p>Error, please please fill out every input field!</p>
+      </div>
+
+      <input type="submit" value="Generate my MadLib" />
+
+    </form>
 
   </div>
 
-  <div class="story">
+  <div ng-if="submitted">
 
-    <p>
-      <span>{{male_name}}</span> was a <span>{{job_title}}</span> who loved technology. Although she loved parts of her job, she absolutely hated <span>{{tedious_task}}</span> and <span>{{dirty_task}}</span>. So, <span>{{male_name}}</span> met with her life mentor <span>{{celebrity}}</span> who told her to learn how to <span>{{useless_skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{useless_skill}}</span> so she studied programming instead.
-    </p>
-    <p>
-      What a great decision! With her new skills, <span>{{male_name}}</span> built a(n) <span>{{adjective}}</span> robot named <span>{{obnoxiuous_celebrity}}</span> that not only loved <span>{{dirty_task}}</span> but did it <span>{{huge_number}}</span> faster.  
-    </p>
- 
+    <div ng-if="gender == 'male'" class="story">
+
+      <p>
+        <span ng-bind="data.name"></span> was a <span ng-bind="data.job_title"></span> who loved technology. Although he loved parts of his job, he absolutely hated <span ng-bind="data.dirty_task"></span> and <span ng-bind="data.tedious_task"></span>. So, <span ng-bind="data.name"></span> met with his life mentor <span ng-bind="data.celebrity"></span> who told him to learn how to <span ng-bind="data.useless_skill"></span> with Thinkful. Thinkful didn't offer a course on <span ng-bind="data.useless_skill"></span> so he studied programming instead.
+      </p>
+      <p>
+        What a great decision! With his new skills, <span ng-bind="data.name"></span> built a(n) <span ng-bind="data.adjective"></span> robot named <span ng-bind="data.obnoxiuous_celebrity"></span> that not only loved <span ng-bind="data.dirty_task"></span> but did it <span ng-bind="data.huge_number"></span> faster.  
+      </p>
+   
+    </div>
+
+    <div ng-if="gender == 'female'" class="story">
+
+      <p>
+        <span ng-bind="data.name"></span> was a <span ng-bind="data.job_title"></span> who loved technology. Although she loved parts of her job, she absolutely hated <span ng-bind="data.tedious_task"></span> and <span ng-bind="data.tedious_task"></span>. So, <span ng-bind="data.name"></span> met with her life mentor <span ng-bind="data.celebrity"></span> who told her to learn how to <span ng-bind="data.useless_skill"></span> with Thinkful. Thinkful didn't offer a course on <span ng-bind="data.useless_skill"></span> so she studied programming instead.
+      </p>
+      <p>
+        What a great decision! With her new skills, <span ng-bind="data.name"></span> built a(n) <span ng-bind="data.adjective"></span> robot named <span ng-bind="data.obnoxiuous_celebrity"></span> that not only loved <span ng-bind="data.dirty_task"></span> but did it <span ng-bind="data.huge_number"></span> faster.  
+      </p>
+    
+    </div>
+
+    <button ng-click="startOver()">Start over</button>
+
   </div>
+
+
 </div>
+
+<script src="js/angular.min.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>
