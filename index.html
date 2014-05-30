@@ -25,14 +25,7 @@
 
     <form ng-submit="submit()" name="myForm" novalidate>
 
-      <h2>Provide the following words:
-        <div>
-          <label for="male">Male</label>
-          <input type="radio" ng-model="gender" id="male" value="male"></input>
-          <label for="female">Female</label>
-          <input type="radio" ng-model="gender" id="female" value="female"></input>
-        </div>
-      </h2>
+      <h2>Provide the following words:</h2>
       
       <div class="input-row">
         <input type="text" ng-model="data.name" placeholder="name" required></input>
@@ -52,44 +45,35 @@
         <input type="text" ng-model="data.adjective" placeholder="adjective" required></input>
       </div>
 
-      <div class="error" ng-if="error">
+      <input type="submit" value="Generate my MadLib" />
+
+      <div class="error" ng-show="error">
         <p>Error, please please fill out every input field!</p>
       </div>
 
-      <input type="submit" value="Generate my MadLib" />
-
     </form>
 
-  </div>
-
-  <div ng-if="submitted">
-
-    <div ng-if="gender == 'male'" class="story">
-
-      <p>
-        <span ng-bind="data.name"></span> was a <span ng-bind="data.job_title"></span> who loved technology. Although he loved parts of his job, he absolutely hated <span ng-bind="data.dirty_task"></span> and <span ng-bind="data.tedious_task"></span>. So, <span ng-bind="data.name"></span> met with his life mentor <span ng-bind="data.celebrity"></span> who told him to learn how to <span ng-bind="data.useless_skill"></span> with Thinkful. Thinkful didn't offer a course on <span ng-bind="data.useless_skill"></span> so he studied programming instead.
-      </p>
-      <p>
-        What a great decision! With his new skills, <span ng-bind="data.name"></span> built a(n) <span ng-bind="data.adjective"></span> robot named <span ng-bind="data.obnoxiuous_celebrity"></span> that not only loved <span ng-bind="data.dirty_task"></span> but did it <span ng-bind="data.huge_number"></span> faster.  
-      </p>
-   
     </div>
 
-    <div ng-if="gender == 'female'" class="story">
+    <div ng-if="submitted">
 
-      <p>
-        <span ng-bind="data.name"></span> was a <span ng-bind="data.job_title"></span> who loved technology. Although she loved parts of her job, she absolutely hated <span ng-bind="data.tedious_task"></span> and <span ng-bind="data.tedious_task"></span>. So, <span ng-bind="data.name"></span> met with her life mentor <span ng-bind="data.celebrity"></span> who told her to learn how to <span ng-bind="data.useless_skill"></span> with Thinkful. Thinkful didn't offer a course on <span ng-bind="data.useless_skill"></span> so she studied programming instead.
-      </p>
-      <p>
-        What a great decision! With her new skills, <span ng-bind="data.name"></span> built a(n) <span ng-bind="data.adjective"></span> robot named <span ng-bind="data.obnoxiuous_celebrity"></span> that not only loved <span ng-bind="data.dirty_task"></span> but did it <span ng-bind="data.huge_number"></span> faster.  
-      </p>
-    
+      <div class="story">
+
+        <p>
+          {{data.name}} was a {{data.job_title}} who loved technology. Although {{he_she}} loved parts of {{his_her}} job, {{he_she}} absolutely hated {{data.dirty_task}} and {{data.tedious_task}}. So, {{data.name}} met with {{his_her}} life mentor {{data.celebrity}} who told {{his_her}} to learn how to {{data.useless_skill}} with Thinkful. Thinkful didn't offer a course on {{data.useless_skill}} so {{he_she}} studied programming instead.
+        </p>
+        <p>
+          What a great decision! With {{his_her}} new skills, {{data.name}} built a(n) {{data.adjective}} robot named {{data.obnoxiuous_celebrity}} that not only loved {{data.dirty_task}} but did it {{data.huge_number}} faster.  
+        </p>
+     
+      </div>
+
+      <button ng-click="toggleGender()">Toggle Gender</button>
+      <button ng-click="startOver()">Start Over</button>
+
     </div>
 
-    <button ng-click="startOver()">Start over</button>
-
   </div>
-
 
 </div>
 
