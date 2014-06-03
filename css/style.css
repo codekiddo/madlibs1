@@ -52,6 +52,7 @@ span {
 }
 
 .inputs {
+  padding-top: 30px;
   padding-left:55px;
 }
 
@@ -76,7 +77,7 @@ h2 {
 }
 
 p {
-  margin: 40px;
+  margin: 35px;
   font-size: 25px;
 }
 
@@ -86,4 +87,26 @@ button {
 
 .error {
   color: red;
+}
+
+@-webkit-keyframes smiley {
+  0% {-webkit-transform: rotateZ(-360deg);}
+  50% {-webkit-transform: rotateZ(360deg);}
+}
+
+.rotate-smiley {
+  -webkit-animation: smiley 20s;
+}
+
+.story-animation.ng-hide-remove {
+  -webkit-transition:0.5s linear all;
+  transition:1s linear all;
+
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+
+.story-animation.ng-hide {
+  opacity: 0;
 }

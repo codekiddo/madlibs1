@@ -13,7 +13,7 @@
   
   <header>
     <div class="smiley">
-      <img src="images/mad-lib-happy-face.png" title="smiley" alt="smiley">
+      <img class="rotate-smiley" src="images/mad-lib-happy-face.png" title="smiley" alt="smiley">
     </div>
     <div class="logo">
       <img src="images/ng-mad-libs-logo.png" title="logo" alt="logo">
@@ -21,7 +21,7 @@
     </div>
   </header>
 
-  <div class="inputs" ng-hide="submitted">
+  <div class="inputs" ng-hide="submitted" class="inputs-animation">
 
     <form ng-submit="submit()" name="myForm" novalidate>
 
@@ -55,15 +55,15 @@
 
     </div>
 
-    <div ng-if="submitted">
+    <div ng-hide="!submitted" class="story-animation">
 
       <div class="story">
 
         <p>
-          {{data.name}} was a {{data.job_title}} who loved technology. Although {{he_she}} loved parts of {{his_her}} job, {{he_she}} absolutely hated {{data.dirty_task}} and {{data.tedious_task}}. So, {{data.name}} met with {{his_her}} life mentor {{data.celebrity}} who told {{his_her}} to learn how to {{data.useless_skill}} with Thinkful. Thinkful didn't offer a course on {{data.useless_skill}} so {{he_she}} studied programming instead.
+          <b>{{data.name}}</b> was a <b>{{data.job_title}}</b> who loved technology. Although {{he_she}} loved parts of {{his_her}} job, {{he_she}} absolutely hated <b>{{data.dirty_task}}</b> and <b>{{data.tedious_task}}</b>. So, <b>{{data.name}}</b> met with {{his_her}} life mentor <b>{{data.celebrity}}</b> who told {{him_her}} to learn how to <b>{{data.useless_skill}}</b> with Thinkful. Thinkful didn't offer a course on <b>{{data.useless_skill}}</b> so {{he_she}} studied programming instead.
         </p>
         <p>
-          What a great decision! With {{his_her}} new skills, {{data.name}} built a(n) {{data.adjective}} robot named {{data.obnoxiuous_celebrity}} that not only loved {{data.dirty_task}} but did it {{data.huge_number}} faster.  
+          What a great decision! With {{his_her}} new skills, <b>{{data.name}}</b> built a(n) <b>{{data.adjective}}</b> robot named <b>{{data.obnoxiuous_celebrity}}</b> that not only loved <b>{{data.dirty_task}}</b> but did it <b>{{data.huge_number}}</b> faster.  
         </p>
      
       </div>
@@ -78,6 +78,7 @@
 </div>
 
 <script src="js/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.js"></script>
 <script src="js/main.js"></script>
 
 </body>
