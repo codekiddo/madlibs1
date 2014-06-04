@@ -1,6 +1,10 @@
 angular.module('myApp', ['ngAnimate'])
   .controller('MainCtrl', function($scope) {
 
+    $scope.data = {
+      name: "",
+      job_title: ""
+    };
 
     $scope.gender = "male";
 

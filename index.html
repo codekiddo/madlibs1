@@ -26,8 +26,12 @@
     <form ng-submit="submit()" name="myForm" novalidate>
 
       <h2>Provide the following words:</h2>
+
+      <div ng-repeat="(key, value) in data">
+        <input type="text" ng-model="{{ key }}" placeholder="" required></input>
+      </div>
       
-      <div class="input-row">
+<!--       <div class="input-row">
         <input type="text" ng-model="data.name" placeholder="name" required></input>
         <input type="text" ng-model="data.dirty_task" placeholder="dirty task"required></input>
         <input type="text" ng-model="data.obnoxiuous_celebrity" placeholder="obnoxiuous celebrity" required></input>
@@ -43,7 +47,7 @@
         <input type="text" ng-model="data.tedious_task" placeholder="tedious task" required></input>
         <input type="text" ng-model="data.useless_skill" required placeholder="useless skill"></input>
         <input type="text" ng-model="data.adjective" placeholder="adjective" required></input>
-      </div>
+      </div> -->
 
       <input type="submit" value="Generate my MadLib" />
 
